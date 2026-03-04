@@ -1,0 +1,41 @@
+{
+  // ------------------------------------------------------------
+  // Version du format de manifest Cockpit
+  // Toujours "1" pour les modules Cockpit actuels.
+  // ------------------------------------------------------------
+  "version": 1,
+
+  // ------------------------------------------------------------
+  // Nom affiché dans le menu Cockpit
+  // C’est ce texte que l’utilisateur voit dans la barre latérale.
+  // ------------------------------------------------------------
+  "label": "VLAN Admin",
+
+  // ------------------------------------------------------------
+  // Icône affichée dans le menu Cockpit
+  // Doit être une icône existante dans le thème Cockpit.
+  // "network-wired" = icône réseau standard.
+  // ------------------------------------------------------------
+  "icon": "network-wired",
+
+  // ------------------------------------------------------------
+  // Déclaration des entrées du menu Cockpit
+  // Ici, une seule entrée : "index"
+  // ------------------------------------------------------------
+  "menu": {
+    "index": {
+
+      // Texte affiché dans le menu
+      "label": "VLAN Admin",
+
+      // --------------------------------------------------------
+      // Page HTML à charger dans l’iframe Cockpit
+      // IMPORTANT :
+      // - Ce chemin est RELATIF au dossier du module
+      // - Cockpit le charge automatiquement sous :
+      //   /cockpit/@localhost/vlan-admin/vlan-admin.html
+      // --------------------------------------------------------
+      "path": "vlan-admin.html"
+    }
+  }
+}
