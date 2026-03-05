@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WireGuard Admin</title>
+  <link rel="stylesheet" href="wireguard-admin.css">
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <h1>Dashboard WireGuard</h1>
+      <p class="subtitle">Gestion des peers et de la configuration <code>wg0</code>.</p>
+    </header>
+
+    <section class="card card--status">
+      <h2>État de l'interface</h2>
+      <div class="detail-grid">
+        <div class="detail-row">
+          <span class="label">Interface</span>
+          <span id="ifstate" class="value">-</span>
+        </div>
+      </div>
+      <pre id="serverinfo" class="info-block"></pre>
+    </section>
+
+    <section class="card card--table">
+      <div class="section-head">
+        <h2>Peers connectés</h2>
+        <div class="actions-inline">
+          <button id="refresh" class="btn btn-secondary">Rafraîchir</button>
+          <button id="add" class="btn btn-primary">Ajouter un peer</button>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table id="peers">
+          <thead>
+            <tr>
+              <th>IP</th>
+              <th>Clé publique</th>
+              <th>Endpoint</th>
+              <th>Dernier handshake</th>
+              <th>RX</th>
+              <th>TX</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card card--split">
+      <div>
+        <h2>Fichier client généré</h2>
+        <pre id="peerconf" class="info-block"></pre>
+        <div class="actions-inline">
+          <button id="download" class="btn btn-primary" style="display:none;">Télécharger .conf</button>
+        </div>
+      </div>
+      <div>
+        <h2>QR code</h2>
+        <div id="qrcode" class="qrcode-box"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Configuration wg0.conf</h2>
+      <textarea id="wgconf"></textarea>
+      <div class="actions-inline">
+        <button id="apply" class="btn btn-primary">Appliquer & redémarrer</button>
+      </div>
+      <div id="status" class="status"></div>
+    </section>
+  </main>
+
+  <script src="../base1/cockpit.js"></script>
+  <script src="wg-admin.js"></script>
+</body>
+</html>
